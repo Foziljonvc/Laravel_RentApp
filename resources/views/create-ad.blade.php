@@ -7,7 +7,15 @@
                 <div class="layout-specing">
                     <!-- Start Content -->
                     <div class="md:flex justify-between items-center">
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
 
                     <x-ad-form :branches="$branches" :ad="$ad"/>

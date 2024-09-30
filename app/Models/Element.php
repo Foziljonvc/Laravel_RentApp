@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class Element extends Model
 {
+    protected $table = 'elements';
     protected $fillable = [
         'name'
     ];
-    public function ads(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Ad::class);
-    }
 }

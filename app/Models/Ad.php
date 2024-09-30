@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
+    protected $fillable = [
+        'title', 'description', 'price',
+        'rooms', 'gender', 'address',
+        'square', 'user_id', 'branch_id',
+        'status_id'
+    ];
+
+    public function user_element(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(User_Element::class)->withTimestamps();
+    }
     public function branch(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Branch::class);

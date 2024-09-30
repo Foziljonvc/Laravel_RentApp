@@ -122,11 +122,19 @@
                 @foreach($ads as $ad)
                     <div class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                         <div class="relative">
-                            <img src="assets/images/property/1.jpg" alt="">
-
-                            <div class="absolute top-4 end-4">
-                                <a href="javascript:void(0)" class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i class="mdi mdi-heart text-[20px]"></i></a>
-                            </div>
+                            <img src="{{asset("/storage/".$ad->images->first()?->name)}}" alt="">
+                            @if ($ad->element_id === 1)
+                                <div class="absolute top-4 end-4">
+                                    <!-- {{$ad->save ? 'text-red-600 dark:text-red-600' : 'text-slate-100 dark:text-slate-100'}} -->
+                                    <a href="{{route('lose.ad')}}?ad={{$ad->id}}&save=1" class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-red-600 dark:text-red-600 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600">
+                                        <i class="fa-regular fa-bookmark"></i></a>
+                                </div>
+                            @else
+                                <div class="absolute top-4 end-4">
+                                    <a href="{{route('save.ad')}}?ad={{$ad->id}}&save=1" class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-100 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600">
+                                        <i class="fa-regular fa-bookmark"></i></a>
+                                </div>
+                            @endif
                         </div>
                         <div class="p-6">
                             <div class="pb-6">
@@ -135,7 +143,7 @@
                             <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                                 <li class="flex items-center me-4">
                                     <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
-                                    <span>{{$ad->square}}sqf</span>
+                                    <span>{{$ad->square}} sqf</span>
                                 </li>
                                 <li class="flex items-center me-4">
                                     <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>

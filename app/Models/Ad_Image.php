@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad_Image extends Model
 {
+    protected $fillable = [
+        'ad_id',
+        'name'
+    ];
+
     protected $table = 'ads_images';
 
     public function ad(): \Illuminate\Database\Eloquent\Relations\BelongsTo

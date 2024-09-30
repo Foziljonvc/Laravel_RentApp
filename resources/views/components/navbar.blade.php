@@ -37,7 +37,7 @@
             <ul class="navigation-menu justify-end">
                 <li><a href="{{route('home')}}">Home</a><span class="menu-arrow"></span></li>
 
-                <li><a href="{{route('create-ad')}}" class="sub-menu-item">Create-ad</a></li>
+                <li><a href="{{route('show.ad')}}" class="sub-menu-item">Create-ad</a></li>
 
                 <li><a href="sell.html" class="sub-menu-item">Sell</a></li>
 
